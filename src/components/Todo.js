@@ -1,12 +1,12 @@
 function Todo(props) {
-    return (
-      <div className='card'>
-        <h2>{props.text}</h2>
-        <div className='actions'>
-          <button className='btn'>Delete this one permanently</button>
-        </div>
+  return (
+    <div className="card">
+      <h2>{props.my_custom_attribute_text}</h2>
+      <div className="actions">
+        <button className="btn">{props.del_text}</button>
       </div>
-    );
-  }
-  
-  export default Todo;
+    </div>
+  );
+}
+
+export default Todo;

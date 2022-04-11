@@ -1,6 +1,15 @@
+import { useState } from "react";
+import Modal from "./Modal";
+import Backdrop from "./Backdrop";
+
 function Todo(props) {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   function deleteHandler() {
-    console.log("the delete button of "+props.my_custom_attribute_text+" was clicked");
+    setModalIsOpen(true);
+  }
+  function closeModalHandler() {
+    setModalIsOpen(false);
   }
 
   return (
@@ -11,6 +20,10 @@ function Todo(props) {
           {props.del_text}
         </button>
       </div>
+      {modalIsOpen && (
+        <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />
+      )}
+      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
     </div>
   );
 }
